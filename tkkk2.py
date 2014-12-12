@@ -2,7 +2,7 @@ from tkinter import *
 from PIL import Image, ImageTk
 root = Tk()     
 top = Frame(root)
-top.grid(row=0, column=0)
+top.grid(columnspan=3, rowspan=2)
 
 def change(string, temp = ''):
     """eng -> thai"""
@@ -23,32 +23,26 @@ def change(string, temp = ''):
     return(temp)
 
 ##make "MAGIC WORD"
-hwframe = Frame(top)
-hwframe.pack(side='top') 
-font = 'times 18 bold'
-hwtext = Label(hwframe, text='MAGIC WORD', font=font)
-hwtext.pack(side='top', pady=20)
-
-##location
-rframe = Frame(top)
-rframe.pack(side='top', padx=10, pady=20)
-
-dframe = Frame(top)
-dframe.pack(side='bottom', padx=10, pady=20)
+hwtext = Label(top, text='MAGIC WORD', font='times 18 bold')
+hwtext.grid(column=0, row=0, columnspan=2)
 
 ##print enter the sentense
-mntext = Label(hwframe, text='Enter The Sentense', font='times 8')
-mntext.grid(row=3, column=1)
+mntext = Label(top, text='Enter The Sentense', font='tohoma 9')
+mntext.grid(column=0, row=1)
+
+##print result
+nntext = Label(top, text='Result', font='tohoma 9')
+nntext.grid(column=0, row=2, sticky=E)
 
 ##input
 r = StringVar()
-r_entry = Entry(rframe, textvariable=r)
-r_entry.pack(side='top')
+r_entry = Entry(top, textvariable=r)
+r_entry.grid(column=1, row=1)
 
 ##output
 s = StringVar()
-s_entry = Entry(dframe, textvariable=s)
-s_entry.pack(side='top')
+s_entry = Entry(top, textvariable=s)
+s_entry.grid(column=1, row=2)
 
 ##button
 def pressed():
@@ -63,17 +57,15 @@ def pressed():
         pass
     root.after(10, pressed)
 
-quit_button = Button(top, text='CHANGE', background='#3399ff', foreground='#808080',
-                      command = pressed)
-quit_button.pack(side='top', pady=5)
-
 ##quit program.
 def quit(event=None):
     root.destroy()
 
 quit_button = Button(text='END PROGRAM', command=quit,
-                     background='#ff5b5b', foreground='#ffffff')
-quit_button.pack(side='top', pady=5, fill='x')
+                     background='#ff5b5b', foreground='#ffffff',height=1, width=33)
+quit_button.columnconfigure(0, weight=1)
+quit_button.grid(row=4)
+
 ##root.bind_all('<q>', quit)
 root.after(0, pressed)
 root.mainloop()
