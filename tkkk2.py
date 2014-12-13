@@ -1,5 +1,6 @@
 from tkinter import *
 from PIL import Image, ImageTk
+import tkinter as tk
 root = Tk()     
 top = Frame(root)
 top.grid(columnspan=3, rowspan=2)
@@ -8,6 +9,13 @@ top.grid(columnspan=3, rowspan=2)
 root.title("MAGIC WORD")
 root.resizable(width=FALSE, height=FALSE)
 root.config(bg='#414141')
+
+image = Image.open("logo.gif")
+photo = ImageTk.PhotoImage(image)
+label = tk.Label(image=photo)
+label.image = photo 
+label.grid(column=0, row=5, padx=25, pady= 15)
+
 
 def change(string, temp = ''):
     """eng -> thai"""
@@ -27,13 +35,13 @@ def change(string, temp = ''):
         else:temp += i
     return(temp)
 
-##make "MAGIC WORD"
-hwtext = Label(top, text='MAGIC WORD', font='times 18 bold', bg='#414141')
-hwtext.grid(column=0, row=0, columnspan=2)
+####make "MAGIC WORD"
+##hwtext = Label(top, text='MAGIC WORD', font='times 18 bold', bg='#414141')
+##hwtext.grid(column=0, row=1, columnspan=2)
 
 ##print enter the sentense
 mntext = Label(top, text='Enter The Sentense', font='tohoma 9', bg='#414141')
-mntext.grid(column=0, row=1)
+mntext.grid(column=0, row=1, sticky=E)
 
 ##print result
 nntext = Label(top, text='Result', font='tohoma 9', bg='#414141')
