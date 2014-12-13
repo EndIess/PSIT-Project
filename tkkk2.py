@@ -4,6 +4,11 @@ root = Tk()
 top = Frame(root)
 top.grid(columnspan=3, rowspan=2)
 
+##windows
+root.title("MAGIC WORD")
+root.resizable(width=FALSE, height=FALSE)
+root.config(bg='#414141')
+
 def change(string, temp = ''):
     """eng -> thai"""
     str1 = '1234567890-=qwertyuiop[]asdfghjkl;\'zxcvbnm,./'
@@ -23,25 +28,25 @@ def change(string, temp = ''):
     return(temp)
 
 ##make "MAGIC WORD"
-hwtext = Label(top, text='MAGIC WORD', font='times 18 bold')
+hwtext = Label(top, text='MAGIC WORD', font='times 18 bold', bg='#414141')
 hwtext.grid(column=0, row=0, columnspan=2)
 
 ##print enter the sentense
-mntext = Label(top, text='Enter The Sentense', font='tohoma 9')
+mntext = Label(top, text='Enter The Sentense', font='tohoma 9', bg='#414141')
 mntext.grid(column=0, row=1)
 
 ##print result
-nntext = Label(top, text='Result', font='tohoma 9')
+nntext = Label(top, text='Result', font='tohoma 9', bg='#414141')
 nntext.grid(column=0, row=2, sticky=E)
 
 ##input
 r = StringVar()
-r_entry = Entry(top, textvariable=r)
+r_entry = Entry(top, textvariable=r, bg='#ff8040')
 r_entry.grid(column=1, row=1)
 
 ##output
 s = StringVar()
-s_entry = Entry(top, textvariable=s)
+s_entry = Entry(top, textvariable=s, bg='#ff8040')
 s_entry.grid(column=1, row=2)
 
 ##button
