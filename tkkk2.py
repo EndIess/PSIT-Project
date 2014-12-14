@@ -48,9 +48,16 @@ s = StringVar()
 s_entry = Entry(top, textvariable=s, width=30)
 s_entry.grid(column=1, row=3)
 
+##reset
+def reset(self):
+    root.clipboard_clear()
+    r.set('')
+    s.set('')
+    
 ##button
 def pressed():
     r_entry.bind('<Return>', change)
+    root.bind('<Delete>', reset)
     try:
         if r.get() != root.clipboard_get() and s.get() != root.clipboard_get():
             r.set(root.clipboard_get())
