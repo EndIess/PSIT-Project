@@ -1,14 +1,18 @@
 ##try:
 from tkinter import *
+<<<<<<< HEAD
 ##    print('DONE')
 ##except:
 ##    from Tkinter import *
 ##    err = tkMessageBox.showerror('Error', 'Install PYTHON3')
 ##import tkMessageBox
+=======
+>>>>>>> origin/master
 root = Tk()     
 top = Frame(root)
 top.grid(column=0, row=0)
 
+<<<<<<< HEAD
 root.title("MAGIC WORD")
 root.resizable(width=FALSE, height=FALSE)
 
@@ -27,6 +31,8 @@ root.resizable(width=FALSE, height=FALSE)
 ##    """help"""
 ##    tkMessageBox.showinfo("How to use this program", "Hold run this program and when you write error message you can copy this sentence and then you place it.")
 ##    
+=======
+>>>>>>> origin/master
 def change(self, temp = ''):
     """eng <-> thai"""
     string = r.get()
