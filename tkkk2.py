@@ -1,3 +1,12 @@
+"""
+PSIT PROJECT
+Program >> MAGIC WORD
+Author >> 57070101 Voradee Santivarotai
+          57070115 Supanut Suantawee
+This program is printed by PYTHON3.
+Detail >> This program is automatically switched
+          the language when you forget to change it.
+"""
 from tkinter import *
 root = Tk()
 top = Frame(root)
@@ -7,7 +16,9 @@ root.title("MAGIC WORD")
 root.resizable(width=FALSE, height=FALSE)
 
 class Myapp(object):
+    """Create main window."""
     def __init__(self):
+        """Composition of window."""
         ##Add menubar
         self.menubar = Menu(top)
         menu = Menu(self.menubar, tearoff=0)
@@ -47,6 +58,7 @@ class Myapp(object):
 
     ##Button
     def pressed(self):
+        """Return, Delete."""
         self.r_entry.bind('<Return>', change)
         root.bind('<Delete>', reset)
         try:
@@ -58,18 +70,22 @@ class Myapp(object):
         root.after(10, app.pressed)
     ##About
     def about(self):
+        """About in menubar."""
         message = messagebox.showinfo("About", "This program is automatically switched the language when you forget to change it.\n thai --> english\nenglish --> thai\nThis program created by Voradee Santivarotai and Supanut Suanthawee from faculty of Information Technology KMITL.\nfor PSIT project")
     ##How to
     def how(self):
+        """How to in menubar."""
         message = messagebox.showinfo("How to", "Hold run this program and then when you print error message you can copy this sentence and then you place it.")
 ##Reset
 def reset(self):
+    """Reset clipboard."""
     root.clipboard_clear()
     app.r.set('')
     app.s.set('')
 
 ##Eng<->Thai
 def change(self, temp = ''):
+    """Change language."""
     string = app.r.get()
     str1 = '1234567890-=qwertyuiop[]asdfghjkl;\'zxcvbnm,./'
     str2 = 'ๅ/-ภถุึคตจขชๆไำพะัีรนยบลฟหกดเ้่าสวงผปแอิืทมใฝ'
@@ -91,6 +107,7 @@ def change(self, temp = ''):
 
 ##Quit program
 def quit(event=None):
+    """quit program."""
     root.destroy()
 
 app = Myapp()
