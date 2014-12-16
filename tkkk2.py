@@ -1,41 +1,76 @@
-##try:
 from tkinter import *
-<<<<<<< HEAD
-##    print('DONE')
-##except:
-##    from Tkinter import *
-##    err = tkMessageBox.showerror('Error', 'Install PYTHON3')
-##import tkMessageBox
-=======
->>>>>>> origin/master
-root = Tk()     
+root = Tk()
 top = Frame(root)
 top.grid(column=0, row=0)
 
-<<<<<<< HEAD
 root.title("MAGIC WORD")
 root.resizable(width=FALSE, height=FALSE)
 
-##def menubar(self):
-##    """the menubar"""
-##    #Create the bar
-##    self.menubar = Menu(self)
-##    #Create help menu
-##    help_menu = Menu(self.menubar, tearoff = 0)
-##    self.menubar.add_cascade(label = "Help", menu = help_menu)
-##    #Create sub of help menu
-##    help_menu.add_command(label = "How to use the program", command = self.helpmenu)
-##    self.master.config(menu = self.menubar)
-##    
-##def helpmenu(self):
-##    """help"""
-##    tkMessageBox.showinfo("How to use this program", "Hold run this program and when you write error message you can copy this sentence and then you place it.")
-##    
-=======
->>>>>>> origin/master
+class Myapp(object):
+    def __init__(self):
+        ##Add menubar
+        self.menubar = Menu(top)
+        menu = Menu(self.menubar, tearoff=0)
+        self.menubar.add_cascade(label="Help", menu=menu)
+        menu.add_command(label="How to", command=self.how)
+        menu.add_command(label="About", command=self.about)
+        root.config(menu=self.menubar)
+        
+        ##make "MAGIC WORD"
+        self.gif1 = PhotoImage(file = 'logo.gif')
+        self.canvas = Canvas(top,width=295,height=170)
+        self.canvas.create_image(150, 0, image = self.gif1, anchor = N)
+        self.canvas.grid(column=0, row=0, columnspan=3, rowspan=2)
+
+        ##print enter the sentense
+        self.mntext = Label(top, text='Enter The Sentense', font='tohoma 9')
+        self.mntext.grid(column=0, row=2)
+        
+        ##print result
+        self.nntext = Label(top, text='Result', font='tohoma 9')
+        self.nntext.grid(column=0, row=3, sticky=E)
+
+        ##Input
+        self.r = StringVar()
+        self.r_entry = Entry(top, textvariable=self.r, width=30)
+        self.r_entry.grid(column=1, row=2)
+
+        ##Output
+        self.s = StringVar()
+        self.s_entry = Entry(top, textvariable=self.s, width=30)
+        self.s_entry.grid(column=1, row=3)
+
+        self.quit_button = Button(text='END PROGRAM', command=quit,
+                     background='#ff5b5b', foreground='#ffffff',height=1, width=41)
+        self.quit_button.columnconfigure(0, weight=1)
+        self.quit_button.grid(row=6)
+
+    ##Button
+    def pressed(self):
+        self.r_entry.bind('<Return>', change)
+        root.bind('<Delete>', reset)
+        try:
+            if self.r.get() != root.clipboard_get() and self.s.get() != root.clipboard_get():
+                self.r.set(root.clipboard_get())
+                change('')
+        except:
+            pass
+        root.after(10, app.pressed)
+    ##About
+    def about(self):
+        message = messagebox.showinfo("About", "This program is automatically switched the language when you forget to change it.\n thai --> english\nenglish --> thai\nThis program created by Voradee Santivarotai and Supanut Suanthawee from faculty of Information Technology KMITL.\nfor PSIT project")
+    ##How to
+    def how(self):
+        message = messagebox.showinfo("How to", "Hold run this program and then when you print error message you can copy this sentence and then you place it.")
+##Reset
+def reset(self):
+    root.clipboard_clear()
+    app.r.set('')
+    app.s.set('')
+
+##Eng<->Thai
 def change(self, temp = ''):
-    """eng <-> thai"""
-    string = r.get()
+    string = app.r.get()
     str1 = '1234567890-=qwertyuiop[]asdfghjkl;\'zxcvbnm,./'
     str2 = 'ๅ/-ภถุึคตจขชๆไำพะัีรนยบลฟหกดเ้่าสวงผปแอิืทมใฝ'
     str3 = '!@#$%^&*()_+QWERTYUIOP{}ASDFGHJKL:\"ZXCVBNM<>?'
@@ -50,59 +85,15 @@ def change(self, temp = ''):
         elif i in str4:
             temp += str3[str4.find(i)]
         else:temp += i
-    s.set(temp)
+    app.s.set(temp)
     root.clipboard_clear()
     root.clipboard_append(temp)
 
-##make "MAGIC WORD"
-gif1 = PhotoImage(file = 'logo.gif')
-canvas = Canvas(top,width=295,height=170)
-canvas.create_image(150, 0, image = gif1, anchor = N)
-canvas.grid(column=0, row=0, columnspan=3, rowspan=2)
-
-##print enter the sentense
-mntext = Label(top, text='Enter The Sentense', font='tohoma 9')
-mntext.grid(column=0, row=2)
-
-##print result
-nntext = Label(top, text='Result', font='tohoma 9')
-nntext.grid(column=0, row=3, sticky=E)
-
-##input
-r = StringVar()
-r_entry = Entry(top, textvariable=r, width=30)
-r_entry.grid(column=1, row=2)
-
-##output
-s = StringVar()
-s_entry = Entry(top, textvariable=s, width=30)
-s_entry.grid(column=1, row=3)
-
-##reset
-def reset(self):
-    root.clipboard_clear()
-    r.set('')
-    s.set('')
-    
-##button
-def pressed():
-    r_entry.bind('<Return>', change)
-    root.bind('<Delete>', reset)
-    try:
-        if r.get() != root.clipboard_get() and s.get() != root.clipboard_get():
-            r.set(root.clipboard_get())
-            change('a')
-    except:
-        pass
-    root.after(10, pressed)
-
-##quit program.
+##Quit program
 def quit(event=None):
     root.destroy()
 
-quit_button = Button(text='END PROGRAM', command=quit,
-                     background='#ff5b5b', foreground='#ffffff',height=1, width=41)
-quit_button.columnconfigure(0, weight=1)
-quit_button.grid(row=6)
-root.after(0, pressed)
+app = Myapp()
+root.after(0, reset(''))
+root.after(5, app.pressed)
 root.mainloop()
