@@ -1,6 +1,6 @@
-<h1>MAGIC WORD</h1>
+MAGIC WORD
 ============
-This program is automatically switched the language when you forget to change it.
+This program is automatically switched the language when you forget to change it.\n
 This program is part of PSIT project.
 
 HOW TO USE THIS PROGRAM
