@@ -1,6 +1,6 @@
 MAGIC WORD
 ============
-This program is automatically switched the language when you forget to change it.\n
+This program is automatically switched the language when you forget to change it. <br />
 This program is part of PSIT project.
 
 HOW TO USE THIS PROGRAM
@@ -13,6 +13,6 @@ This program is wrote by [Python 3](https://www.python.org/download/releases/3.0
 
 SUBMITTED BY
 ============
--57070101 Voradee Santivarotai
--57070115 Supanut Suantawee
+-57070101 Voradee Santivarotai <br />
+-57070115 Supanut Suantawee <br />
 Faculty of Information Technology, King Mongkut’s institute of technology Ladkrabang
