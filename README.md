@@ -6,7 +6,8 @@ This program is part of PSIT project.
 HOW TO USE THIS PROGRAM
 ============
 Hold run this program and then when you print error message you can copy this sentence and then you place it. <br />
-If you want to reset , you can press 'delete' button.
+If you want to reset , you can press 'delete' button. <br />
+while you're running this program you should careful to press copy and place button.
 
 INSTALLING
 ============
